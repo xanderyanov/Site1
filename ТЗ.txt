@@ -5,13 +5,27 @@
 
 
 *******************************************************************
-db.addUser(   ???
-{
-user:"roo",
-pwd:"roopwd",
-roles:[{role:"root",db:"admin"}]
-}
+добавление пользователя в базу - для корректной работы.
+db.createUser(
+  {
+    user: "master",
+    pwd:  "159753",
+	"roles" : [ 
+		{
+			"role" : "dbAdminAnyDatabase",
+			"db" : "admin"
+		}, 
+		{
+			"role" : "readWriteAnyDatabase",
+			"db" : "admin"
+		}, 
+		{
+			"role" : "userAdminAnyDatabase",
+			"db" : "admin"
+		}]
+	}
 )
+
 
 *******************************************************************
 
