@@ -1,8 +1,26 @@
-﻿@{
+﻿@model IEnumerable<Product>
+
+@{
     ViewData["Title"] = "Home Page";
+    var activeCampaigns = Model.Where(x => x.ShowOnMainPage).ToList();
 }
 
 <div class="text-center">
     <h1 class="display-4">Главная страница</h1>
+
+    @foreach (var p in activeCampaigns) {
+    <div>
+        <h3>@p.Name</h3>
+        @p.Description
+        <h4>@p.Price.ToString("c")</h4>
+    </div>
+}
+
     
 </div>
+
+
+
+
+
+
