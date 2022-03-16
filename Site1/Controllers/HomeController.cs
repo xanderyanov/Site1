@@ -14,7 +14,7 @@ namespace Site1.Controllers
         {
             var productsCollection = Program.DB.GetCollection<Product>("products");
             BsonDocument filter = new();
-            List<Product> products = productsCollection.Find(filter).ToList();
+            IEnumerable<Product> products = productsCollection.Find(filter).ToList();
 
             return View(products);
         }
@@ -23,7 +23,7 @@ namespace Site1.Controllers
         {
             var productsCollection = Program.DB.GetCollection<Product>("products");
             BsonDocument filter = new("ProductID", new BsonDocument("$lt", 5));
-            List<Product> products = productsCollection.Find(filter).ToList();
+            IEnumerable<Product> products = productsCollection.Find(filter).ToList();
 
             return View(products);
         }
